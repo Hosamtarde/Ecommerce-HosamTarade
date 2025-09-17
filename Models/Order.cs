@@ -21,7 +21,7 @@ namespace Ecommerce.Models
 
         public List<Product> products { get; set; }
         
-        public totalPay()
+        public void totalPay()
         {
             foreach (var item in products)
             {
