@@ -17,7 +17,7 @@ namespace Ecommerce.Models.Service
             orders = new List<Order>();
         }
 
-        public AddOrder()
+        public addOrder()
         {
             orders.Add(order);
 
