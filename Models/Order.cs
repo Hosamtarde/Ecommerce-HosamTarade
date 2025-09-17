@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,21 +20,26 @@ namespace Ecommerce.Models
         public DateTime updateAt { get; set; }
 
         public List<Product> products { get; set; }
-        // !!!!!!!
         
-        public void getBill()
+        public totalPay()
         {
-            Console.WriteLine($"the Bill for Customer {customer.Name}   : ");
-            int i = 0;
-            double totalToPay = 0; 
-            foreach (var item in products) 
+            foreach (var item in products)
             {
                 totalToPay += item.price;
                 Console.WriteLine($"{++i}.Product with name {item.Name} with Id {item.Id} with price {item.price} ");
             }
             Console.WriteLine($"Total Price : {totalToPay}");
             Console.WriteLine($"Your dicount : {DisCount.getdiscount(customer.type)}");
-            Console.WriteLine($"your final  Total after discount is : {totalToPay- totalToPay* DisCount.getdiscount(customer.type)}");
+            Console.WriteLine($"your final  Total after discount is : {totalToPay - totalToPay * DisCount.getdiscount(customer.type)}");
+        }
+
+        public void getBill()
+        {
+            Console.WriteLine($"the Bill for Customer {customer.Name}   : ");
+            int i = 0;
+            double totalToPay = 0;
+
+            totalToPay();
 
         }
 
