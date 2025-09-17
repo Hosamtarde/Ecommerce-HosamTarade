@@ -1,35 +1,49 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Models
+namespace Ecommerce.Models.Service
 {
-    public enum CustomerType {Normal , Vip }
-    internal class Customer : User
+    internal class OrderService
     {
-        public static int idcount = 1;
-        public Customer(CustomerType customerType = CustomerType.Normal) 
+        private List<Order> orders;
+        static int IdCount = 1;
+
+
+        public OrderService()
         {
-            type = customerType;
-            createAt = DateTime.Now;
-            idcount *= 3352;
-            idcount %= 1800;
-            Id= idcount;
             orders = new List<Order>();
         }
-        public string visaInfo { get; set; }    
-        
-        DateTime createAt { get; set; }
 
-        List<Order> orders { get; set; }
-
-        public CustomerType type { get; set; }
-
-        public override Role access()
+        public AddOrder()
         {
-            return Role.Customer;
+            orders.Add(order);
+
+            customer.orders.Add(order);
+            foreach (Product x in products)
+                x.quantity--;
+            return order;
+        }
+
+        public Order PlaceOrder(Customer customer , List<Product> products )
+        {
+            Order order = new Order();
+            IdCount *= 101010142;
+            IdCount %= 223123212;
+            order.Id = IdCount;
+            order.customer = customer;
+            order.products = products;
+            order.crateAt = DateTime.Now;
+
+            AddOrder();
+        }
+
+
+        public List<Order> GetOrders(Func<Order ,bool > fillter)
+        {
+            return orders.Where(fillter).ToList();
         }
     }
 }
