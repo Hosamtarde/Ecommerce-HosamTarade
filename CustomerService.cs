@@ -21,6 +21,7 @@ namespace Ecommerce.Models.Service
 
         public void conditionalCustomer()
         {
+            char yn = char.Parse(Console.ReadLine());
             Customer customerr = new Customer();
             if (yn == 'y')
                 customerr = Signup();
@@ -40,7 +41,7 @@ namespace Ecommerce.Models.Service
         {
             Console.WriteLine("Welcome To Prime Shop !!!!!!!!");
             Console.WriteLine("are you new customer (y , n) ?");
-            char yn = char.Parse(Console.ReadLine());
+            
 
             conditionalCustomer();
 
@@ -119,3 +120,4 @@ namespace Ecommerce.Models.Service
 
     }
 }
+
